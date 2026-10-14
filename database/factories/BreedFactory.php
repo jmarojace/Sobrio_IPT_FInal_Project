@@ -1,0 +1,26 @@
+<?php
+
+namespace Database\Factories;
+
+use App\Models\Breed;
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+/**
+ * @extends Factory<Breed>
+ */
+class BreedFactory extends Factory
+{
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
+    public function definition(): array
+    {
+        return [
+            'name' => fake()->unique()->word().' '.fake()->randomElement(['Cattle', 'Goat', 'Sheep', 'Pig']),
+            'species' => fake()->randomElement(['Cattle', 'Goat', 'Sheep', 'Pig']),
+            'description' => fake()->optional()->sentence(),
+        ];
+    }
+}
